@@ -1,0 +1,27 @@
+SPUI - GENERAL HELP
+
+The command for menus always begins:
+    .SPUI <type>
+There is, currently, only one type, so this would always be MENU
+
+After this comes a series of (optional) flags to change default behavior. These take the format of:
+ -X opt
+The item following the hyphen is always a single character, and not case sensitive.
+There is always a space between the flag and the option value.
+
+Valid flags are:
+ -x     Changes the first column (x coord) of the menu
+ -y     Changes the first row (y coord) of the menu
+ -r     Changes the total rows (selectable) of the menu text
+ -c     Changes the total col (text width) of the menu
+ -t     Changes the title of the menu. Multiword titles must be quoted.
+
+See spui-demo.txt for more examples of how to (and how not to) use SPUI
+
+The selected item is returned in the User Next Register.   You should _always_ pre-set the User Register to zero, unless otherwise instructed, to prevent unwanted side effects. e.g.
+
+10 REG 127,0
+20 .SPUI MENU "NextReg returns" One Two Three Four
+30 PRINT % REG 127
+
+This will be 0, as set by you, if the user hits BREAK to exit the menu

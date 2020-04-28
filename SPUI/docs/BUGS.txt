@@ -1,0 +1,5 @@
+SPUI - KNOWN BUGS
+
+ * Total commandline length cannot be greater than 127char
+ * It doesn't go "click" when you move the bar
+ * It doesn't work with .$ to preparse BASIC variables
