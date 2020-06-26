@@ -1,7 +1,0 @@
-Limits for the MENU component
-
-must be:
- < 24rows high (inc starting X)
- < 30columns wide (inc starting Y)
- > 6columns wide
- > 1rows tall

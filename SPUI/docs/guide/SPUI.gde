@@ -1,0 +1,556 @@
+@title Stale Pixels User Interface Manual
+@author D. 'Xalior' Rimron-Soutter
+@version 0.2.1
+@copyright Copyright (C)2020 Stale Pixels, some rights reserved.
+@date 2020/06/10
+@index INDEX
+@-------------------------------------------------------------------------------
+@node MAIN
+@prev INDEX
+@next USER
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface Manual
+
+@{c}@{h2}Version 0.2.1
+@{c}@{h2}D. Rimron-Soutter
+
+@{h1}Overview
+
+  Stale Pixels User Interface (aka, and hereafter referred to as, @{i}SPUI@{ui}) is a
+command line tool for building simple "ZX Spectrum Next" themed user interfaces.
+
+  It is designed primarily as an in house tool for Stale Pixels, but has been
+shared to save others having to reinvent the same tooling for their own needs.
+
+  SPUI is not intended to be a general purpose "startup menu", but more a tool
+to allow users to build their own menus and user interactions.
+
+ @{" Using SPUI as a User " LINK USER}
+ @{" Using SPUI as a Developer " LINK DEVELOPER}
+ @{" Copyright " LINK COPYRIGHT}
+ @{" Recent Changes " LINK CHANGELOG}
+ @{" Acknowledgements " LINK THANKS}
+@-------------------------------------------------------------------------------
+@node INDEX
+@next THANKS
+@prev MAIN
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface Manual Comprehensive Index
+@{c}@{h2}Getting Started
+
+     @{" Overview " LINK MAIN}        What's SPUI (and what it is not)
+     @{" User Guide " LINK USER}      Interacting with SPUI
+     @{" Developer Use " LINK DEVELOPER}   Creating SPUI interactions
+
+
+@{c}@{h2}Widget Types
+
+          @{"  MENU  " LINK type_MENU}     Menu
+          @{" BANNER " LINK type_BANNER}     Banner
+
+
+@{c}@{h2}Command Line Switches
+
+              @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+              @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
+              @{" -H " LINK cmd_HELP}     Shortform @{b}H@{ub}elp
+              @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
+              @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
+              @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
+              @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
+              @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
+
+
+@{c}@{h2} Any Other Business
+
+     @{" Copyright " LINK COPYRIGHT}       Rights and permissions
+     @{" Credits " LINK THANKS}         Thanks and colophon
+@-------------------------------------------------------------------------------
+@node USER
+@prev MAIN
+@next DEVELOPER
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface User Manual
+
+  SPUI is used much like the default menu system of NextZXOS, and therefore can
+be driven with either the keyboard, via the cursor keys, or with a joystick.
+
+  With the keyboard up and down cursor keys navigate the menu rows, and @{b}ENTER@{ub}
+confirms your selection.  @{b}BREAK@{ub} acts as back, or cancel.
+
+  When using the joystick the up and down actions take the place of the cursor
+keys, and the default fire button takes the place of enter.
+
+@{i}TODO:@{ui} add Fire2 as cancel/break options via joystick input.
+@-------------------------------------------------------------------------------
+@node DEVELOPER
+@prev USER
+@next dev_MAIN
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface Developer Manual
+
+     @{" Abstract " LINK dev_MAIN}        What can you expect from SPUI?
+     @{" Widget Types " LINK dev_TYPES}      Who can SPUI help?
+     @{" Planned Features " LINK dev_ROADMAP}   Where SPUI is going?
+     @{" Known Foibles " LINK dev_BUGS}         Why is SPUI broken?
+@-------------------------------------------------------------------------------
+@node dev_MAIN
+@prev DEVELOPER
+@next dev_TYPES
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}What can you expect from SPUI?
+@{c}@{h2}(a.k.a. Our Motivation)
+
+    The Sinclair ZX Spectrum has a long, and well established history.  The
+industrial design of the original 48k Spectrum by Rick Dickinson is so iconic
+that you can find it reproduced in both accessories and fashion brands across
+the globe. It's even featured in Hollywood productions and Real Life tattoos!
+
+    The design of the humble 128k machine is less steeped in glory, being so
+obviously "borrowed" from the QL, famous Sinclair flop... But this is where we
+at Stale Pixels take our inspiration.
+
+    Not the case and keyboard, or any of Dick's striking industrial design, but
+the new features added to that machine's ROM.  We begin at it's beginning, the
+startup menu, and the new features you could access from it.
+
+    With that "source" in mind, hopefully you can already start to imagine the
+kind of widgets we hope to include in our User Interface (known as just plain
+"SPUI" to its friends, pronounced to rhyme with Huey, Dewey or Louie) and the
+look and feel we will be aiming for.
+@-------------------------------------------------------------------------------
+@node dev_TYPES
+@prev dev_MAIN
+@next type_MENU
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Who can SPUI help?
+@{c}@{h2}(a.k.a. Our Widget List)
+
+          @{"  MENU  " LINK type_MENU}     Menu
+
+          @{" BANNER " LINK type_BANNER}     Banner
+@-------------------------------------------------------------------------------
+@node type_MENU
+@prev dev_TYPES
+@next type_BANNER
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Widget Type: MENU
+@{c}@{h2}(The one when you turn the Spectrum Next on)
+
+@{h3}Abstract
+
+    A simple menu designed to simulate the one found on the original "Toastrack"
+and used through-out the NextZXOS System and BASIC ROMs today. By presetting
+the user NextReg you can define the initial selection, and also automatically
+pick the default with an optional timeout.
+
+@{h3}Supported Command Line Switches
+
+              @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+              @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
+              @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
+              @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
+              @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
+              @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
+              @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
+
+@{h3}Usage Notes
+
+  @{b}o@{ub} The width, plus column offset must not overflow the screen edges, otherwise
+this will generate out of bounds error.
+
+  @{b}o@{ub} The height, plus row offset must not overflow the screen edges, otherwise
+this will generate out of bounds error.
+
+@{h3}Widget Specific Defaults
+
+      @{b}C@{ub}olumn width
+      Count@{b}d@{ub}own timer          Has NO default - unset if not used
+      @{b}R@{ub}ow height
+      Origin @{b}X@{ub} column
+      Origin @{b}Y@{ub} row
+@-------------------------------------------------------------------------------
+@node type_BANNER
+@prev type_MENU
+@next dev_ROADMAP
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Widget Type: BANNER
+@{c}@{h2}(The one at the bottom of the Tape Loader)
+
+@{h3}Abstract
+
+    A quick "branding bar" that is modelled on the one used in the original
+128k "Tape Loader" screen.    Can be positioned just about anywhere with CLI
+switches, including the very bottom row of the ULA standard draw area.
+
+@{h3}Supported Command Line Switches
+
+              @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+              @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
+              @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
+              @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
+
+@{h3}Usage Notes
+
+  @{b}o@{ub} The width, plus column offset must not overflow the screen edges, otherwise
+this will generate out of bounds error.
+
+@{h3}Widget Specific Defaults
+
+      @{b}C@{ub}olumn width
+      Origin @{b}X@{ub} column
+      Origin @{b}Y@{ub} row
+@-------------------------------------------------------------------------------
+@node dev_ROADMAP
+@prev dev_TYPES
+@next dev_BUGS
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Where SPUI is going?
+@{c}@{h2}(a.k.a. Our Roadmap)
+
+@{h3}Our "ToDo" List
+
+  @{b}o@{ub} Multi-Selection Widgets
+  @{b}o@{ub} "Alert" dialogs
+  @{b}o@{ub} "Confirm" dialogs
+  @{b}o@{ub} Load a Dialog config from a file
+
+@{h3}Our "TaDa" List
+
+  @{b}o@{ub} Add "Default Selection" loaded from NextReg 0x7F
+  @{b}o@{ub} Add "Timeout" until default option picked
+@-------------------------------------------------------------------------------
+@node dev_BUGS
+@prev dev_ROADMAP
+@next cmd_INDEX
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Why is SPUI broken?
+@{c}@{h2}(a.k.a. Our Bestest Bugs)
+
+@{h3}Our "ToDo" List
+
+  @{b}o@{ub} Better MD/Joystick handling
+  @{b}o@{ub} Read config from file
+
+@{h3}Our "NoTa" List
+
+  @{b}o@{ub} Handle command-lines >127char long
+
+@{h3}Our "TaDa" List
+
+  @{b}o@{ub} No Docs       --  full .gde now in System/Next > Version 1.3.2
+  @{b}o@{ub} Work with .$  --  fixed in System/Next > Version 1.3.2
+@-------------------------------------------------------------------------------
+@node cmd_INDEX
+@prev dev_BUGS
+@next cmd_WIDTH_COL
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switch Index
+
+              @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+              @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
+              @{" -H " LINK cmd_HELP}     Shortform @{b}H@{ub}elp
+              @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
+              @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
+              @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
+              @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
+              @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
+@-------------------------------------------------------------------------------
+@node cmd_WIDTH_COL
+@prev cmd_INDEX
+@next cmd_DELAY
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   C
+
+              @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+
+@{h2}Purpose
+
+    Allows you to override the default column width, the default width for each
+widget type varies. You should ensure sure you see the widgets "Default Values"
+section for specific values.
+
+    Most widgets have a minimum width, and you cannot make widget smaller than
+that.  All widgets are not allowed to exceed the drawing space of the screen.
+
+@{h3}WARNING
+
+      The behaviour of this switch depends upon other, related, switches
+ Ensure sure you see each widgets "Usage Notes" section for interaction details
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
+@-------------------------------------------------------------------------------
+@node cmd_DELAY
+@prev cmd_WIDTH_COL
+@next cmd_HELP
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   D
+
+              @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
+
+@{h2}Purpose
+
+    Allows you to specify delay before the preloaded default value for the
+widget is selected automatically.  You should use NextReg 0x7F (128) to load the
+widget with the initial values.  For details upon how the value in this register
+affects the widget you should see the widgets "User Defined Defaults" section
+for the widget in question.
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}
+@-------------------------------------------------------------------------------
+@node cmd_HELP
+@prev cmd_DELAY
+@next cmd_PROMPT
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   H
+
+              @{" -H " LINK cmd_HELP}     Shortform @{b}H@{ub}elp
+
+@{h2}Purpose
+
+    Display the inbuilt shorthand help screen.  It will mostly refer you back to
+this guide file.
+
+    SPUI is a complex application, and to include all of this help from the
+the guide internally would make it too big, and harder to maintain, this guide
+file is, and will always be, the definitive documentation for SPUI's options.
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
+@-------------------------------------------------------------------------------
+@node cmd_PROMPT
+@prev cmd_HELP
+@next cmd_HEIGHT_ROW
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   P
+
+              @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
+
+@{h2}Purpose
+
+    Change the default prompt when displaying the countdown timer when auto-
+matically selecting the preselected default option.
+
+    The default message is "Time Left: " but you can change this to any text you
+want.  Picking a message that is too long for your widget will truncate the
+message to ensure that the "00s" remains visible.  Even if you pick a timeout
+less than 10 seconds the number will sill be padded to two significant digits.
+
+    The maximum timeout you can pick is 99 seconds.
+
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}
+@-------------------------------------------------------------------------------
+@node cmd_HEIGHT_ROW
+@prev cmd_PROMPT
+@next cmd_TITLE
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   R
+
+              @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
+
+@{h2}Purpose
+
+    Allows you to override the default column height, the default height for
+each widget type varies. You should ensure sure you see the widgets "Default
+Values" section for specific values.
+
+    Most widgets have a minimum height, and you cannot make widget smaller than
+that.  All widgets are not allowed to exceed the drawing space of the screen.
+
+@{h3}WARNING
+
+      The behaviour of this switch depends upon other, related, switches
+ Ensure sure you see each widgets "Usage Notes" section for interaction details
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}
+@-------------------------------------------------------------------------------
+@node cmd_TITLE
+@prev cmd_HEIGHT_ROW
+@next cmd_X_ORIG_ROW
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   T
+
+              @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
+
+@{h2}Purpose
+
+    Change the default text when displaying the widget.  Where this exactly is
+depends upon the widget in question.  You should ensure sure you see the widgets
+"Default Values" section for specific details.
+
+    The default message is "SPUI" but you can change this to any text you
+want.  Picking a message that is too long for your widget will truncate the
+message to ensure widget remains legible.  Even if you pick a message that is
+too long it will be truncated, if you pick one that is too short it will be
+padded with empty space.
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
+@-------------------------------------------------------------------------------
+@node cmd_X_ORIG_ROW
+@prev cmd_TITLE
+@next cmd_Y_ORIG_ROW
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   X
+
+              @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
+
+@{h2}Purpose
+
+    Allows you to override the default left hand column, the default column for
+each widget type varies. You should ensure sure you see the widgets "Default
+Values" section for specific values.
+
+@{h3}WARNING
+
+      The behaviour of this switch depends upon other, related, switches
+Ensure sure you see the additional "Usage Notes" section for interaction details
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
+@-------------------------------------------------------------------------------
+@node cmd_Y_ORIG_ROW
+@prev cmd_X_ORIG_ROW
+@next COPYRIGHT
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   Y
+
+              @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
+
+@{h2}Purpose
+
+    Allows you to override the default top row, the default starting row for
+each widget type varies. You should ensure sure you see the widgets "Default
+Values" section for specific values.
+
+@{h4}WARNING
+      The behaviour of this switch depends upon other, related, switches
+Ensure sure you see the additional "Usage Notes" section for interaction details
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}
+
+@-------------------------------------------------------------------------------
+@node COPYRIGHT
+@prev cmd_Y_ORIG_ROW
+@next CHANGELOG
+@toc INDEX
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface Copyright
+
+The software SPUI and all associated documentation remain @{b}@{i}Copyright @(2020 Stale
+ Pixels@{ui}@{ub}, some rights reserved.
+
+Non-commercial distribution of SPUI and related documents is hereby given if
+ and only if the software and copyright are unchanged and the copyright message
+ is left intact.
+
+Commercial distribution of SPUI and related documents is hereby given if
+ and only written permission is prior sought
+
+You may @{b}not@{ub}, without written permission, commercially exploit this tool,
+ manual or related software.
+
+@-------------------------------------------------------------------------------
+@node CHANGELOG
+@prev COPYRIGHT
+@next THANKS
+@toc MAIN
+@{r}SPUI Manual
+
+@{c}@{h1}Stale Pixels User Interface Changelog
+
+    ------------+-----------------------------------------------------------
+    @{b}VERSION@{ub}     | @{b}DETAILS@{ub}
+    ============+===========================================================
+     @{i}0.2.1@{ui}      |       Re-release of 0.2.0 with missing files added
+                |  @{b}NEW:@{ub} All docs moved to .GDE file
+     @{i}0.2.0@{ui}      |       First release on Next/System
+                |  @{b}FIX:@{ub} Wrong value on overflows
+                |  @{b}NEW:@{ub} Load "pre-selected" defaults from reg 0x7f
+                |  @{b}NEW:@{ub} Switch -D (timeout until @{b}D@{ub}efault)
+                |  @{b}NEW:@{ub} Switch -P (@{b}P@{ub}ompt for time counter)
+                |  @{b}NEW:@{ub} Added type BANNER
+    ------------+-----------------------------------------------------------
+     @{i}0.1.1@{ui}      |       (internal release only)
+    ------------+-----------------------------------------------------------
+     @{i}0.1.0@{ui}      |       First public release
+    ------------+-----------------------------------------------------------
+@-------------------------------------------------------------------------------
+@node THANKS
+@next MAIN
+@prev INDEX
+@toc MAIN
+@{r}SPUI Manual
+
+@{c}@{h1}Acknowledgements
+
+@{c}@{h2}Many **BIG** Thanks go to the following folks...
+
+@{c}@{h3}Making Things
+
+@{c}#TeamSpecNext                who made the spectrum next, d'uh!
+@{c}z88dk         nanos gigantum humeris insidentes, gratias tibi!
+@{c}Matt Davies       whose @{b}awesome@{ub} @{i}.guide@{ui} you're reading this in!
+
+
+@{c}@{h3}Feature Suggestions
+
+@{c}Old Man Saph            Matto Marco             Lucky SevenFFF
+
+
+@{c}@{h3}Beta-Testers
+
+@{c}Phoebus Dokos @ Team SpecNext           Marco Varesio @ Marco's Retrobits
+
