@@ -1,0 +1,3 @@
+SPUI - TODO
+
+ * Read settings from .INI file (due: V0.3.0)

@@ -1,4 +1,6 @@
 SPUI - KNOWN BUGS
 
- * Total commandline length cannot be greater than 127char
+ * Total commandline length cannot be greater than 127char^
  * It doesn't go "click" when you move the bar
+
+^ Is is by design, and is not really a bug - therefore are not likely to be fixed.

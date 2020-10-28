@@ -10,7 +10,7 @@ Quick Start
 ==
 .SPUI -h  will get you the built-in help.
 
-When building GUIs the parameter <TYPE> is compulsory. 
+When building GUIs the parameter < TYPE > is compulsory. 
 
 Setup
 ==

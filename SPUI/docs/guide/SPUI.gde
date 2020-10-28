@@ -175,13 +175,14 @@ this will generate out of bounds error.
   @{b}o@{ub} The height, plus row offset must not overflow the screen edges, otherwise
 this will generate out of bounds error.
 
-@{h3}Widget Specific Defaults
+@{h3}Widget Specific Default Values
 
-      @{b}C@{ub}olumn width
+      @{b}T@{ub}itle                    SPUI
+      @{b}C@{ub}olumn width             14 (padded by 2)
       Count@{b}d@{ub}own timer          Has NO default - unset if not used
-      @{b}R@{ub}ow height
-      Origin @{b}X@{ub} column
-      Origin @{b}Y@{ub} row
+      @{b}R@{ub}ow height               4
+      Origin @{b}X@{ub} column          9
+      Origin @{b}Y@{ub} row             6
 @-------------------------------------------------------------------------------
 @node type_BANNER
 @prev type_MENU
@@ -212,9 +213,10 @@ this will generate out of bounds error.
 
 @{h3}Widget Specific Defaults
 
-      @{b}C@{ub}olumn width
-      Origin @{b}X@{ub} column
-      Origin @{b}Y@{ub} row
+      @{b}T@{ub}itle                    SPUI
+      @{b}C@{ub}olumn width             30 (padded by 2)
+      Origin @{b}X@{ub} column          1
+      Origin @{b}Y@{ub} row             22
 @-------------------------------------------------------------------------------
 @node dev_ROADMAP
 @prev dev_TYPES
