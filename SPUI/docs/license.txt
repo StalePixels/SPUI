@@ -1,0 +1,12 @@
+Stale Pixels User Interface Copyright
+
+The software SPUI and all associated documentation remain Copyright @2020 Stale Pixels, some rights reserved.
+
+Non-commercial distribution of SPUI and related documents is hereby given if
+ and only if the software and copyright are unchanged and the copyright message
+ is left intact.
+
+Commercial distribution of SPUI and related documents is hereby given if
+ and only written permission is prior sought
+
+You may not, without written permission, commercially exploit SPUI, its manual or related software.

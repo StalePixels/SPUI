@@ -1,8 +1,8 @@
 @title Stale Pixels User Interface Manual
 @author D. 'Xalior' Rimron-Soutter
-@version 0.2.1
+@version 0.3.0ALPHA2
 @copyright Copyright (C)2020 Stale Pixels, some rights reserved.
-@date 2020/06/10
+@date 2020-11-08
 @index INDEX
 @-------------------------------------------------------------------------------
 @node MAIN
@@ -13,7 +13,7 @@
 
 @{c}@{h1}Stale Pixels User Interface Manual
 
-@{c}@{h2}Version 0.2.1
+@{c}@{h2}Version 0.3.0ALPHA2
 @{c}@{h2}D. Rimron-Soutter
 
 @{h1}Overview
@@ -57,6 +57,7 @@ to allow users to build their own menus and user interactions.
               @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
               @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
               @{" -H " LINK cmd_HELP}     Shortform @{b}H@{ub}elp
+              @{" -I " LINK cmd_INI}     Load options from @{b}I@{ub}NI file
               @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
               @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
               @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
@@ -161,6 +162,7 @@ pick the default with an optional timeout.
 
               @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
               @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
+              @{" -I " LINK cmd_INI}     Load options from @{b}I@{ub}NI file
               @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
               @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
               @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
@@ -202,6 +204,7 @@ switches, including the very bottom row of the ULA standard draw area.
 @{h3}Supported Command Line Switches
 
               @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
+              @{" -I " LINK cmd_INI}     Load options from @{b}I@{ub}NI file
               @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
               @{" -X " LINK cmd_X_ORIG_COL}     Origin @{b}X@{ub} column
               @{" -Y " LINK cmd_Y_ORIG_ROW}     Origin @{b}Y@{ub} row
@@ -273,6 +276,7 @@ this will generate out of bounds error.
               @{" -C " LINK cmd_WIDTH_COL}     @{b}C@{ub}olumn width
               @{" -D " LINK cmd_DELAY}     Count@{b}d@{ub}own timer
               @{" -H " LINK cmd_HELP}     Shortform @{b}H@{ub}elp
+              @{" -I " LINK cmd_INI}     Load options from @{b}I@{ub}NI file
               @{" -P " LINK cmd_PROMPT}     @{b}P@{ub}rompt for countdown timer
               @{" -R " LINK cmd_HEIGHT_ROW}     @{b}R@{ub}ow height
               @{" -T " LINK cmd_TITLE}     Widget @{b}T@{ub}itle
@@ -331,7 +335,7 @@ for the widget in question.
 @-------------------------------------------------------------------------------
 @node cmd_HELP
 @prev cmd_DELAY
-@next cmd_PROMPT
+@next cmd_INI
 @toc INDEX
 @{r}SPUI Manual
 
@@ -347,6 +351,28 @@ this guide file.
     SPUI is a complex application, and to include all of this help from the
 the guide internally would make it too big, and harder to maintain, this guide
 file is, and will always be, the definitive documentation for SPUI's options.
+
+@{h4}Supported Widgets
+
+  @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
+@-------------------------------------------------------------------------------
+@node cmd_INI
+@prev cmd_HELP
+@next cmd_DELAY
+@toc INI
+@{r}SPUI Manual
+
+@{c}@{h1}Command Line Switches   I
+
+              @{" -I " LINK cmd_INI}     Load options from @{b}I@{ub}NI file
+
+@{h2}Purpose
+
+    Load config options from INI file.
+
+    After you have picked the widget type you can optionally load the config
+options from an INI file.  While the options in the INI file are not required
+ALL of the SPUI rows (e.g. menu options) are required.
 
 @{h4}Supported Widgets
 
@@ -409,7 +435,7 @@ that.  All widgets are not allowed to exceed the drawing space of the screen.
 @-------------------------------------------------------------------------------
 @node cmd_TITLE
 @prev cmd_HEIGHT_ROW
-@next cmd_X_ORIG_ROW
+@next cmd_X_ORIG_COL
 @toc INDEX
 @{r}SPUI Manual
 
@@ -433,7 +459,7 @@ padded with empty space.
 
   @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
 @-------------------------------------------------------------------------------
-@node cmd_X_ORIG_ROW
+@node cmd_X_ORIG_COL
 @prev cmd_TITLE
 @next cmd_Y_ORIG_ROW
 @toc INDEX
@@ -459,7 +485,7 @@ Ensure sure you see the additional "Usage Notes" section for interaction details
   @{"  MENU  " LINK type_MENU}    @{" BANNER " LINK type_BANNER}
 @-------------------------------------------------------------------------------
 @node cmd_Y_ORIG_ROW
-@prev cmd_X_ORIG_ROW
+@prev cmd_X_ORIG_COL
 @next COPYRIGHT
 @toc INDEX
 @{r}SPUI Manual
@@ -516,6 +542,11 @@ You may @{b}not@{ub}, without written permission, commercially exploit this tool
     ------------+-----------------------------------------------------------
     @{b}VERSION@{ub}     | @{b}DETAILS@{ub}
     ============+===========================================================
+     @{i}0.3.0ALPHA2@{ui}|       @{b}NEW:@{ub} Updated docs for -I
+                |  @{b}FIX:@{ub} Ability to select empty rows
+     @{i}0.3.0ALPHA@{ui} |       @{b}NEW:@{ub} Switch -I (Read @{b}I@{ub}NI)
+     @{i}0.2.2@{ui}      |       Fixed default handling, and updated .gde file
+                |  @{b}NEW:@{ub} Added TODO.txt to docs
      @{i}0.2.1@{ui}      |       Re-release of 0.2.0 with missing files added
                 |  @{b}NEW:@{ub} All docs moved to .GDE file
      @{i}0.2.0@{ui}      |       First release on Next/System
@@ -544,7 +575,7 @@ You may @{b}not@{ub}, without written permission, commercially exploit this tool
 
 @{c}#TeamSpecNext                who made the spectrum next, d'uh!
 @{c}z88dk         nanos gigantum humeris insidentes, gratias tibi!
-@{c}Matt Davies       whose @{b}awesome@{ub} @{i}.guide@{ui} you're reading this in!
+@{c}Matt Davies               Author of the .guide reader command!
 
 
 @{c}@{h3}Feature Suggestions
