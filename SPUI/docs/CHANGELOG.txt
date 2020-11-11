@@ -1,7 +1,10 @@
 SPUI - CHANGELOG
 
 VERSION          DETAILS
-0.2.2            Fixed default handling, and updated .gde file
+0.3.0       NEW: -I switch to read .INI style configs
+            FIX: .gde bug reported by Remy Sharp
+            FIX: Ability to select empty rows
+0.2.2       FIX: Default handling, and updated .gde file
                  Added TODO.txt to docs
 0.2.1            Re-release of 0.2.0 with missing files added
             NEW: All docs moved to .GDE file
