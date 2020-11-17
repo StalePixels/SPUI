@@ -1,8 +1,8 @@
 @title Stale Pixels User Interface Manual
 @author D. 'Xalior' Rimron-Soutter
-@version 0.3.0ALPHA2
+@version 0.3.0
 @copyright Copyright (C)2020 Stale Pixels, some rights reserved.
-@date 2020-11-11
+@date 2020-11-17
 @index INDEX
 @-------------------------------------------------------------------------------
 @node MAIN
@@ -13,7 +13,7 @@
 
 @{c}@{h1}Stale Pixels User Interface Manual
 
-@{c}@{h2}Version 0.3.0ALPHA2
+@{c}@{h2}Version 0.3.0
 @{c}@{h2}D. Rimron-Soutter
 
 @{h1}Overview

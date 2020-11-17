@@ -1,0 +1,74 @@
+#program AUTOEXEC
+#autostart 10
+#autoline 10
+ON ERROR Proc OnError()
+.cd /SPUI/startup
+.EVERY 10 STARTUP
+IF %REG 127 THEN PROC AutomaticStartup()
+REG 127,0 : .SPUI MENU -I autoexec.ini
+; Remember 0 = None/BREAK
+let %c = %REG 127
+IF %c = 0 THEN ERASE
+IF %c = 1 THEN Proc NextZXOS()
+IF %c = 2 THEN Proc NextPiUI()
+IF %c = 3 THEN Proc FoaK()
+IF %c = 4 THEN Proc D3()
+IF %c = 10 THEN Proc ManualStartup()
+IF %c = 12 THEN Proc Retokenize()
+
+STOP
+#autoline 
+
+
+#autoline 7000
+; Get over Toshiba going ReadOnly
+DefProc OnError() 
+    REMOUNT
+    RUN
+EndProc
+
+DefProc AutomaticStartup()
+    Proc UpdateESP()
+EndProc
+
+DefProc ManualStartup()
+    Proc AutomaticStartup()
+    .INI /sys/every.cfg STARTUP 0
+EndProc
+
+DefProc UpdateESP()
+    CLS
+    .NXTP wendy.xalior.com 12300
+    CLS
+EndProc
+
+DefProc NextZXOS()
+    .CD /
+    NEW
+EndProc
+
+DefProc NextPiUI()
+    .CD /NextPi
+    .NextPiUI
+    .LS
+    ERASE
+EndProc
+
+DefProc FoaK()
+    .CD /FoaK
+    .NEXLOAD Foak.nex
+EndProc
+
+DefProc D3()
+    .CD /D3
+    CLS
+    .CD
+    .LS
+    ERASE
+EndProc
+
+DefProc Retokenize()
+    CLS
+    LOAD "tokenize.bas"
+EndProc
+#autoline

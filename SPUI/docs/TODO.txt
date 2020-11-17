@@ -1,3 +1,4 @@
 SPUI - TODO
 
  * Override .INI options on CLI (due: V0.4.0)
+ * Clock options on CLI (due: V0.4.0)
