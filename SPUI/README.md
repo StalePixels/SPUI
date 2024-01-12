@@ -12,7 +12,7 @@ to make the creation of User Interaction flows from NextBASIC \
 
 Quick Start
 ==
-.SPUI -h  will get you the built-in help.
+<code>.SPUI -h</code>  will get you the built-in help.
 
 When building GUIs the parameter <TYPE> is compulsory. 
 
@@ -24,4 +24,4 @@ More Information
 ==
 See the /docs/ folder
 
---Xalior, 20200626
+--Xalior, 20240112
