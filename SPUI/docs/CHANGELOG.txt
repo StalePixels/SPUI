@@ -2,6 +2,7 @@ SPUI - CHANGELOG
 
 VERSION          DETAILS
 0.4.0       NEW: Complete rewrite of drawing code, now faster and smaller
+            NEW: Joystick Support
             FIX: Better (read: correct) handling of IY register on exit
 0.3.0       NEW: -I switch to read .INI style configs
             FIX: .gde bug reported by Remy Sharp
