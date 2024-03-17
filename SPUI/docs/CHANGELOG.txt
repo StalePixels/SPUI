@@ -1,8 +1,12 @@
 SPUI - CHANGELOG
 
 VERSION          DETAILS
+0.4.1       NEW: Complete rewrite of input handler code to match drawing API
+            FIX: Map cursor keys to match NextZXOS uses by default
+            FIX: Map MD/SMS buttons to match NextZXOS uses by default
+                 (B = Fire1, C = Fire2)
+            FIX: Improved key-repeat handler around joystick use
 0.4.0       NEW: Complete rewrite of drawing code, now faster and smaller
-            NEW: Joystick Support
             FIX: Better (read: correct) handling of IY register on exit
 0.3.0       NEW: -I switch to read .INI style configs
             FIX: .gde bug reported by Remy Sharp

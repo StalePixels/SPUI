@@ -1,8 +1,8 @@
 @title Stale Pixels User Interface Manual
 @author D. 'Xalior' Rimron-Soutter
-@version 0.4.0
+@version 0.4.1
 @copyright Copyright (C)2020 Stale Pixels, some rights reserved.
-@date 2024-01-12
+@date 2024-03-17
 @index INDEX
 @-------------------------------------------------------------------------------
 @node MAIN
@@ -13,7 +13,7 @@
 
 @{c}@{h1}Stale Pixels User Interface Manual
 
-@{c}@{h2}Version 0.4.0
+@{c}@{h2}Version 0.4.1
 @{c}@{h2}D. Rimron-Soutter
 
 @{h1}Overview
@@ -254,6 +254,7 @@ this will generate out of bounds error.
 @{h3}Our "ToDo" List
 
   @{b}o@{ub} Better MD/Joystick handling
+  @{b}o@{ub} Read config from file
 
 @{h3}Our "NoTa" List
 
@@ -263,7 +264,6 @@ this will generate out of bounds error.
 
   @{b}o@{ub} No Docs       --  full .gde now in System/Next > Version 1.3.2
   @{b}o@{ub} Work with .$  --  fixed in System/Next > Version 1.3.2
-  @{b}o@{ub} Config files  --  fixed in version 0.3.0
 @-------------------------------------------------------------------------------
 @node cmd_INDEX
 @prev dev_BUGS
@@ -374,8 +374,8 @@ file is, and will always be, the definitive documentation for SPUI's options.
         .SPUI MENU -I my_lovely_horse.ini
 
     After you have picked the widget type you can optionally load the config
-options from an INI file.  While all menu options present in the INI file are
-not required the same compulsory requirements as the command line are present.
+options from an INI file.  While the options in the INI file are not required
+ALL of the SPUI rows (e.g. menu options) are required.
 
 @{h4}Supported Widgets
 
