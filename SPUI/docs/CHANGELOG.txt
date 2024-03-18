@@ -1,6 +1,9 @@
 SPUI - CHANGELOG
 
 VERSION          DETAILS
+0.4.2       FIX: Some debugging data remained from input rewrite, now removed
+                 (thanks to Stefan Byland for testing and finding this!)
+            FIX: Updated changelog in the GDE file
 0.4.1       NEW: Complete rewrite of input handler code to match drawing API
             FIX: Map cursor keys to match NextZXOS uses by default
             FIX: Map MD/SMS buttons to match NextZXOS uses by default

@@ -1,8 +1,8 @@
 @title Stale Pixels User Interface Manual
 @author D. 'Xalior' Rimron-Soutter
-@version 0.4.1
+@version 0.4.2
 @copyright Copyright (C)2020 Stale Pixels, some rights reserved.
-@date 2024-03-17
+@date 2024-03-18
 @index INDEX
 @-------------------------------------------------------------------------------
 @node MAIN
@@ -13,7 +13,7 @@
 
 @{c}@{h1}Stale Pixels User Interface Manual
 
-@{c}@{h2}Version 0.4.1
+@{c}@{h2}Version 0.4.2
 @{c}@{h2}D. Rimron-Soutter
 
 @{h1}Overview
@@ -545,10 +545,20 @@ You may @{b}not@{ub}, without written permission, commercially exploit this tool
     ------------+-----------------------------------------------------------
     @{b}VERSION@{ub}     | @{b}DETAILS@{ub}
     ============+===========================================================
-     @{i}0.3.0ALPHA2@{ui}|       @{b}NEW:@{ub} Updated docs for -I
+     @{i}0.4.2@{ui}      |  @{b}FIX:@{ub} Some debugging data remained from input rewrite,
+                |       now removed (Thanks to Stefan Byland for testing &
+                |       finding this)
+                |  @{b}FIX:@{ub} Updated changelog in the GDE file
+     @{i}0.4.1@{ui}      |  @{b}NEW:@{ub} Complete rewrite of input handler to match drawing API
+                |  @{b}FIX:@{ub} Map cursor keys to match NextZXOS uses by default
+                |  @{b}FIX:@{ub} Map MD/SMS buttons to match NextZXOS uses by default
+                |       (@{b}B@{ub} = Fire1, @{b}C@{ub} = Fire2)
+     @{i}0.4.0@{ui}      |  @{b}NEW:@{ub} Complete rewrite of drawing API, now faster & smaller
+                |  @{b}FIX:@{ub} Better (read: correct) handling of IY register on exit
+     @{i}0.3.0ALPHA2@{ui}|  @{b}NEW:@{ub} Updated docs for -I
                 |  @{b}FIX:@{ub} Ability to select empty rows
-     @{i}0.3.0ALPHA@{ui} |       @{b}NEW:@{ub} Switch -I (Read @{b}I@{ub}NI)
-     @{i}0.2.2@{ui}      |       Fixed default handling, and updated .gde file
+     @{i}0.3.0ALPHA@{ui} |  @{b}NEW:@{ub} Switch -I (Read @{b}I@{ub}NI)
+     @{i}0.2.2@{ui}      |  @{b}FIX:@{ub} Default handling, and updated .gde file
                 |  @{b}NEW:@{ub} Added TODO.txt to docs
      @{i}0.2.1@{ui}      |       Re-release of 0.2.0 with missing files added
                 |  @{b}NEW:@{ub} All docs moved to .GDE file
